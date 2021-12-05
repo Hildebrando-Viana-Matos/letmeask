@@ -1,7 +1,11 @@
-type ButtonProps = {
-  text?: string;
-};
+import { ButtonHTMLAttributes } from "react";
+
+// Importing CSS
+import "../styles/Button.scss";
+
+// Colocando para usar os mesmos atributos de um botão no HTML
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function Button(props: ButtonProps) {
-  return <button>Clique Aqui {props.text || "Nada"}</button>;
+  return <button className="button" {...props} />;
 }
