@@ -4,8 +4,12 @@ import { ButtonHTMLAttributes } from "react";
 import "../styles/Button.scss";
 
 // Colocando para usar os mesmos atributos de um botão no HTML
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  isOutlined?: boolean;
+};
 
-export function Button(props: ButtonProps) {
-  return <button className="button" {...props} />;
+export function Button({ isOutlined = false, ...props }: ButtonProps) {
+  return (
+    <button className={`button ${isOutlined ? "outlined" : ""}`} {...props} />
+  );
 }
